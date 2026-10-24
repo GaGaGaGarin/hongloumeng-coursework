@@ -1,0 +1,5 @@
+# 原始材料与临时文件
+_extracted/
+__pycache__/
+*.pyc
+.DS_Store

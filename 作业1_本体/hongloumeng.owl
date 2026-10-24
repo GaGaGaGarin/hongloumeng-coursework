@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/hongloumeng#"
+     xml:base="http://www.semanticweb.org/hongloumeng"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/hongloumeng">
+        <rdfs:comment>红楼梦本体知识库——依据《冷子兴演说荣国府》一节构建</rdfs:comment>
+    </owl:Ontology>
+
+    <!-- ==================== 类（Classes） ==================== -->
+
+    <!-- 顶层类：人物 -->
+    <owl:Class rdf:about="#人物">
+        <rdfs:label xml:lang="zh">人物</rdfs:label>
+    </owl:Class>
+
+    <!-- 贾府人物：人物的子类 -->
+    <owl:Class rdf:about="#贾府人物">
+        <rdfs:subClassOf rdf:resource="#人物"/>
+        <rdfs:label xml:lang="zh">贾府人物</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="#荣国府人物">
+        <rdfs:subClassOf rdf:resource="#贾府人物"/>
+        <rdfs:label xml:lang="zh">荣国府人物</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="#宁国府人物">
+        <rdfs:subClassOf rdf:resource="#贾府人物"/>
+        <rdfs:label xml:lang="zh">宁国府人物</rdfs:label>
+    </owl:Class>
+
+    <!-- 外人：非贾府之人 -->
+    <owl:Class rdf:about="#外人">
+        <rdfs:subClassOf rdf:resource="#人物"/>
+        <rdfs:label xml:lang="zh">外人</rdfs:label>
+    </owl:Class>
+
+    <!-- 府第 -->
+    <owl:Class rdf:about="#府第">
+        <rdfs:label xml:lang="zh">府第</rdfs:label>
+    </owl:Class>
+
+    <!-- 官职 -->
+    <owl:Class rdf:about="#官职">
+        <rdfs:label xml:lang="zh">官职</rdfs:label>
+    </owl:Class>
+
+    <!-- ==================== 对象属性（Object Properties） ==================== -->
+
+    <owl:ObjectProperty rdf:about="#是父亲">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#人物"/>
+        <rdfs:label xml:lang="zh">是父亲</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#是母亲">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#人物"/>
+        <rdfs:label xml:lang="zh">是母亲</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#是丈夫">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#人物"/>
+        <owl:inverseOf rdf:resource="#是妻子"/>
+        <rdfs:label xml:lang="zh">是丈夫</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#是妻子">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#人物"/>
+        <owl:inverseOf rdf:resource="#是丈夫"/>
+        <rdfs:label xml:lang="zh">是妻子</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#是儿子">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#人物"/>
+        <rdfs:label xml:lang="zh">是儿子</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#是女儿">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#人物"/>
+        <rdfs:label xml:lang="zh">是女儿</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#是外孙女">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#人物"/>
+        <rdfs:label xml:lang="zh">是外孙女</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#居住于">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#府第"/>
+        <rdfs:label xml:lang="zh">居住于</rdfs:label>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#任职于">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="#官职"/>
+        <rdfs:label xml:lang="zh">任职于</rdfs:label>
+    </owl:ObjectProperty>
+
+    <!-- ==================== 数据属性（Data Properties） ==================== -->
+
+    <owl:DatatypeProperty rdf:about="#别称">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="zh">别称</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#说明">
+        <rdfs:domain rdf:resource="#人物"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="zh">说明</rdfs:label>
+    </owl:DatatypeProperty>
+
+    <!-- ==================== 个体（Individuals） ==================== -->
+
+    <!-- 荣国府人物 -->
+    <owl:NamedIndividual rdf:about="#贾母">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <别称>史太君</别称>
+        <是母亲 rdf:resource="#贾赦"/>
+        <是母亲 rdf:resource="#贾政"/>
+        <说明>贾代善之妻，荣国府最高长辈</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾赦">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是父亲 rdf:resource="#贾琏"/>
+        <是父亲 rdf:resource="#贾迎春"/>
+        <居住于 rdf:resource="#荣国府"/>
+        <说明>贾母长子，袭一等将军</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#邢夫人">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是妻子 rdf:resource="#贾赦"/>
+        <说明>贾赦之妻</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾政">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是父亲 rdf:resource="#贾珠"/>
+        <是父亲 rdf:resource="#贾元春"/>
+        <是父亲 rdf:resource="#贾宝玉"/>
+        <是父亲 rdf:resource="#贾探春"/>
+        <是丈夫 rdf:resource="#王夫人"/>
+        <居住于 rdf:resource="#荣国府"/>
+        <说明>贾母次子，任工部员外郎</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#王夫人">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是母亲 rdf:resource="#贾珠"/>
+        <是母亲 rdf:resource="#贾元春"/>
+        <是母亲 rdf:resource="#贾宝玉"/>
+        <是妻子 rdf:resource="#贾政"/>
+        <说明>贾政之妻，王子腾之妹</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾珠">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是儿子 rdf:resource="#贾政"/>
+        <是丈夫 rdf:resource="#李纨"/>
+        <说明>贾政长子，早逝</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#李纨">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是妻子 rdf:resource="#贾珠"/>
+        <说明>贾珠之妻</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾元春">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是女儿 rdf:resource="#贾政"/>
+        <任职于 rdf:resource="#贵妃"/>
+        <说明>贾政长女，入宫为妃</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾宝玉">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是儿子 rdf:resource="#贾政"/>
+        <是儿子 rdf:resource="#王夫人"/>
+        <居住于 rdf:resource="#荣国府"/>
+        <别称>宝玉</别称>
+        <说明>贾政次子，衔玉而生，本书主角</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾探春">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是女儿 rdf:resource="#贾政"/>
+        <说明>贾政之女，庶出</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾迎春">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是女儿 rdf:resource="#贾赦"/>
+        <说明>贾赦之女</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾琏">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是儿子 rdf:resource="#贾赦"/>
+        <是丈夫 rdf:resource="#王熙凤"/>
+        <说明>贾赦之子</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#王熙凤">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是妻子 rdf:resource="#贾琏"/>
+        <别称>凤辣子</别称>
+        <说明>贾琏之妻，王夫人侄女</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#林黛玉">
+        <rdf:type rdf:resource="#荣国府人物"/>
+        <是外孙女 rdf:resource="#贾母"/>
+        <居住于 rdf:resource="#荣国府"/>
+        <说明>贾母外孙女，林如海之女，寄居荣国府</说明>
+    </owl:NamedIndividual>
+
+    <!-- 宁国府人物 -->
+    <owl:NamedIndividual rdf:about="#贾敬">
+        <rdf:type rdf:resource="#宁国府人物"/>
+        <是父亲 rdf:resource="#贾珍"/>
+        <是父亲 rdf:resource="#贾惜春"/>
+        <说明>宁国府袭官，一味好道</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾珍">
+        <rdf:type rdf:resource="#宁国府人物"/>
+        <是父亲 rdf:resource="#贾蓉"/>
+        <是儿子 rdf:resource="#贾敬"/>
+        <说明>贾敬之子</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾蓉">
+        <rdf:type rdf:resource="#宁国府人物"/>
+        <是儿子 rdf:resource="#贾珍"/>
+        <是丈夫 rdf:resource="#秦可卿"/>
+        <说明>贾珍之子</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#秦可卿">
+        <rdf:type rdf:resource="#宁国府人物"/>
+        <是妻子 rdf:resource="#贾蓉"/>
+        <说明>贾蓉之妻</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾惜春">
+        <rdf:type rdf:resource="#宁国府人物"/>
+        <是女儿 rdf:resource="#贾敬"/>
+        <居住于 rdf:resource="#荣国府"/>
+        <说明>贾敬之女，养于荣国府</说明>
+    </owl:NamedIndividual>
+
+    <!-- 外人 -->
+    <owl:NamedIndividual rdf:about="#冷子兴">
+        <rdf:type rdf:resource="#外人"/>
+        <说明>演说荣国府之人，周瑞家的女婿</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贾雨村">
+        <rdf:type rdf:resource="#外人"/>
+        <说明>听冷子兴演说荣国府的听者</说明>
+    </owl:NamedIndividual>
+
+    <!-- 府第 -->
+    <owl:NamedIndividual rdf:about="#荣国府">
+        <rdf:type rdf:resource="#府第"/>
+        <说明>贾代善一房所居</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#宁国府">
+        <rdf:type rdf:resource="#府第"/>
+        <说明>贾代化一房所居</说明>
+    </owl:NamedIndividual>
+
+    <!-- 官职 -->
+    <owl:NamedIndividual rdf:about="#员外郎">
+        <rdf:type rdf:resource="#官职"/>
+        <说明>工部员外郎，贾政之职</说明>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#贵妃">
+        <rdf:type rdf:resource="#官职"/>
+        <说明>贾元春之封号</说明>
+    </owl:NamedIndividual>
+
+</rdf:RDF>
